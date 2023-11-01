@@ -1,14 +1,31 @@
+#include "binary_trees.h"
+
 /**
- * binary_tree_depth - measures depth of node in binary tree
- * @tree: pointer to node to measure
- * Return: depth otherwise 0 if tree is NULL
+ * binary_tree_insert_left - a function that inserts a node as the left-child
+ *@parent: a pointer to the node to insert the left-child in.
+ *@value: the value to store in the new node.
+ * Return: pointer to created node, or NULL on failure or if parent is NULL.
  */
-size_t binary_tree_depth(const binary_tree_t *tree)
+binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 {
-	size_t depth;
+	binary_tree_t *node = NULL;
 
-	if (tree == NULL || tree->parent == NULL)
-		return (0);
-
-	depth = binary_tree_depth(tree->parent) + 1;
-	return (depth);
+	if (parent == NULL)
+		return (NULL);
+	node = malloc(sizeof(binary_tree_t));
+	if (node == NULL)
+		return (NULL);
+	node->n = value;
+	node->parent = parent;
+	node->left = NULL;
+	node->right = NULL;
+	if (parent->left == NULL)
+		parent->left = node;
+	else
+	{
+		node->left = parent->left;
+		parent->left = node;
+		node->left->parent = node;
+	}
+	return (node);
+}
