@@ -1,11 +1,11 @@
-#include "binary_tree.h"
+#include "binary_trees.h"
 /*
- */
+*/
 
-binary_tree_t *binary_insert_right(binary_tree_t *parent, int
+binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value)
 {
 	binary_tree_t *newNode;
-	binary_tree_t *oldNode'
+	binary_tree_t *oldNode;
 
 	if (!parent)
 	{
