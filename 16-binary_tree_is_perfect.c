@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 #include "14-binary_tree_balance.c"
-#include "15-bianry_tree_is_full.c"
+#include "15-binary_tree_is_full.c"
 
 /**
  * tree_leaves - checks if leaves are at same level
